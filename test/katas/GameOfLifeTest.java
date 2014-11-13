@@ -27,4 +27,13 @@ public class GameOfLifeTest {
         Assert.assertEquals(board, initialBoard);
     }
 
+    @Test
+    public void whenMakeNextMove_theRetrieveBoardMustNoBeTheSame() throws Exception {
+        Board initialBoard = new Board();
+        game.setInitialBoard(initialBoard);
+        game.nextMove();
+        Board board = game.getBoard();
+        Assert.assertNotEquals(board, initialBoard);
+    }
+
 }

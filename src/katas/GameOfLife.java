@@ -10,7 +10,7 @@ public class GameOfLife {
     }
 
     public void nextMove() {
-
+        this.board = new Board();
     }
 
     public Board getBoard() {
