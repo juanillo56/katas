@@ -14,12 +14,6 @@ public class GameOfLifeTest {
     }
 
     @Test
-    public void givenAInitialBoard_mustMakeNextMove() throws Exception {
-        game.setInitialBoard(new Board());
-        game.nextMove();
-    }
-
-    @Test
     public void whenNoMakeNextMove_theRetrieveBoardMustBeTheSame() throws Exception {
         Board initialBoard = new Board();
         game.setInitialBoard(initialBoard);
