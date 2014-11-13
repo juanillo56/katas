@@ -2,14 +2,19 @@ package katas;
 
 public class GameOfLife {
 
+    private Board board;
+
     public void setInitialBoard(Board board) {
-        // TODO Auto-generated method stub
+        this.board = board;
 
     }
 
     public void nextMove() {
-        // TODO Auto-generated method stub
 
+    }
+
+    public Board getBoard() {
+        return this.board;
     }
 
 }

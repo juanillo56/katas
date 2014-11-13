@@ -1,21 +1,30 @@
 package katas;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class GameOfLifeTest {
 
-    @Test
-    public void creationTest() throws Exception {
-        GameOfLife game = new GameOfLife();
-        Assert.assertTrue(game != null);
+    private GameOfLife game;
+
+    @Before
+    public void setUp() {
+        game = new GameOfLife();
     }
 
     @Test
     public void givenAInitialBoard_mustMakeNextMove() throws Exception {
-        GameOfLife game = new GameOfLife();
         game.setInitialBoard(new Board());
         game.nextMove();
+    }
+
+    @Test
+    public void whenNoMakeNextMove_theRetrieveBoardMustBeTheSame() throws Exception {
+        Board initialBoard = new Board();
+        game.setInitialBoard(initialBoard);
+        Board board = game.getBoard();
+        Assert.assertEquals(board, initialBoard);
     }
 
 }
