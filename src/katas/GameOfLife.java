@@ -11,14 +11,23 @@ public class GameOfLife {
 
     public void nextMove() {
         final Board transitiveBoard = new Board();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i][j]) {
-
+        for (int x = 0; x < 3; x++) {
+            for (int y = 0; y < 3; y++) {
+                if (board.isLiveCell(x, y)) {
+                    int vacinosVivos = board.obtenerNumerDeVecinosVivos(x, y);
+                    if (vacinosVivos == 2) {
+                        transitiveBoard.setLiveCell(x, y);
+                    }
+                    if (vacinosVivos == 0) {
+                        transitiveBoard.setDeadCell(x, y);
+                    }
+                    if (vacinosVivos > 3) {
+                        transitiveBoard.setDeadCell(x, y);
+                    }
                 }
             }
         }
-
+        this.board = transitiveBoard;
     }
 
     public Board getBoard() {
